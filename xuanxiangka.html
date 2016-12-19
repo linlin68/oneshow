@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	#box div{width: 200px; height: 200px; border:1px solid #000; display:none;}
+	.on{background: red;}
+	</style>
+	<script>
+		window.onload=function(){
+			var oBox=document.getElementById('box');
+			var aBtn=oBox.getElementsByTagName('input');
+			var aDiv=oBox.getElementsByTagName('div');
+			for(var i=0;i<aBtn.length;i++){
+				aBtn[i].index=i;
+				aBtn[i].onclick=function(){
+					for(var i=0;i<aBtn.length;i++){
+						aBtn[i].className='';
+						aDiv[i].style.display='none';
+					}
+					this.className='on';
+					aDiv[this.index].style.display='block';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<input type="button" value="新闻" class="on">
+		<input type="button" value="体育">
+		<input type="button" value="娱乐">
+		<div style="display:block;">111</div>
+		<div>222</div>
+		<div>333</div>
+	</div>
+</body>
+</html>
